@@ -1,0 +1,9 @@
+body::after {
+  background-color: white;
+  border: 1px solid #dedede;
+  bottom: 5px;
+  content: 'Hello from the Verify Chrome Extension 👋';
+  font-size: 10px;
+  position: fixed;
+  right: 5px;
+}
