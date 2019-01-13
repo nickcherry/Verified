@@ -64,3 +64,12 @@ First ensure that the Ethereum development network is running (either by `yarn d
 ```shell
 yarn test
 ```
+
+
+## :sparkles: Linting
+
+To lint the project, run the following:
+
+```shell
+yarn lint
+```

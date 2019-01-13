@@ -9,7 +9,7 @@ const web3Instance = new web3(httpProvider);
 const helloWorldAddress = Object.values(helloWorldNetworks)[0].address;
 const helloWorldContract = new web3Instance.eth.Contract(helloWorldAbi, helloWorldAddress);
 
-console.log('Hello from the background script. 👋')
+console.log('Hello from the background script. 👋');
 console.log('web3Instance:', web3Instance);
 console.log('helloWorldContract:', helloWorldContract);
 

@@ -1,6 +1,6 @@
 const HelloWorld = artifacts.require('HelloWorld');
 
-contract('HelloWorld', (accounts) => {
+contract('HelloWorld', () => {
   let contractInstance;
   beforeEach(async () => contractInstance = await HelloWorld.deployed());
 
