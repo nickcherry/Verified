@@ -12,6 +12,7 @@
     "lint": "./node_modules/.bin/eslint --fix ./src ./test",
     "migrate": "./node_modules/truffle/.bin/truffle migrate --contracts_build_directory=builds/contracts --network development",
     "migrate-production": "./node_modules/truffle/.bin/truffle migrate --contracts_build_directory=builds/contracts --network live",
+    "postinstall": "cp ./githooks/pre-commit .git/hooks/pre-commit",
     "serve-ethereum": "./node_modules/ganache-cli/cli.js",
     "test": "./node_modules/truffle/.bin/truffle test --contracts_build_directory=builds/contracts",
     "webpack-chrome-extension-development": "node ./node_modules/webpack/bin/webpack --config ./webpack/chrome_extension.development.config.js --mode development --progress --hide-modules --watch"
