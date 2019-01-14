@@ -14,7 +14,9 @@
     "migrate-production": "./node_modules/truffle/.bin/truffle migrate --contracts_build_directory=builds/contracts --network live",
     "postinstall": "cp ./githooks/pre-commit .git/hooks/pre-commit",
     "serve-ethereum": "./node_modules/ganache-cli/cli.js",
-    "test": "./node_modules/truffle/.bin/truffle test --contracts_build_directory=builds/contracts",
+    "test": "npm-run-all --parallel test-contracts test-scripts",
+    "test-contracts": "./node_modules/truffle/.bin/truffle test --contracts_build_directory=builds/contracts",
+    "test-scripts": "./node_modules/mocha/bin/mocha --opts ./mocha.opts",
     "webpack-chrome-extension-development": "node ./node_modules/webpack/bin/webpack --config ./webpack/chrome_extension.development.config.js --mode development --progress --hide-modules --watch"
   },
   "dependencies": {
@@ -26,12 +28,19 @@
   },
   "devDependencies": {
     "@babel/core": "^7.2.2",
+    "@babel/polyfill": "^7.2.5",
     "@babel/preset-env": "^7.2.3",
+    "@babel/register": "^7.0.0",
     "babel-loader": "^8.0.5",
+    "babel-polyfill": "^6.26.0",
+    "chai": "^4.2.0",
     "copy-webpack-plugin": "^4.6.0",
     "eslint": "^5.12.0",
     "eslint-plugin-mocha": "^5.2.1",
+    "mocha": "^5.2.0",
     "npm-run-all": "^4.1.5",
+    "sinon": "^7.2.2",
+    "sinon-chai": "^3.3.0",
     "webpack": "^4.28.4",
     "webpack-cli": "^3.2.1",
     "webpack-merge": "^4.2.1"

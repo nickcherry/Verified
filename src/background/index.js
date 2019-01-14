@@ -21,3 +21,9 @@ chrome.runtime.onMessage.addListener(({ type }, _sender, sendResponse) => {
     return true;
   }
 });
+
+chrome.browserAction.onClicked.addListener((tab) => {
+  chrome.tabs.executeScript(tab.id, {
+    code: 'alert("hi")',
+  });
+});

@@ -1,0 +1,5 @@
+--check-leaks
+--require @babel/register testSetup.js
+--reporter spec
+--ui bdd
+./src/**/__tests__/*.js
