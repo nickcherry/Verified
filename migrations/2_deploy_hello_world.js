@@ -1,5 +1,5 @@
-const HelloWorld = artifacts.require('HelloWorld');
+const Registry = artifacts.require('Registry');
 
 module.exports = (deployer) => {
-  deployer.deploy(HelloWorld);
+  deployer.deploy(Registry);
 };

@@ -5,15 +5,18 @@ document.addEventListener('DOMContentLoaded', () => {
   const newContentForm = document.getElementById('new-content-form');
   const errors = document.getElementById('errors');
 
-  urlInput.addEventListener('keydown', () => errors.innerHTML = '');
+  const setErrorsText = (text) => errors.innerHTML = text;
+
+  urlInput.addEventListener('keydown', () => setErrorsText(''));
 
   newContentForm.addEventListener('submit', (e) => {
     e.preventDefault();
+
     const url = normalizeUrl(urlInput.value);
-    if (url) {
-      alert(url);
-    } else {
-      errors.innerHTML = 'Please enter a valid URL.';
-    }
+    if (!url) return setErrorsText('Please enter a valid URL.');
+
+    chrome.runtime.sendMessage({ type: 'commit', url }, (response) => {
+      alert(response);
+    });
   });
 });
