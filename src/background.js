@@ -2,7 +2,7 @@ import web3 from 'web3';
 import {
   abi as helloWorldAbi,
   networks as helloWorldNetworks,
-} from '../../builds/contracts/HelloWorld.json';
+} from '../builds/contracts/HelloWorld.json';
 
 const httpProvider = new web3.providers.HttpProvider(process.env.NETWORK_URL);
 const web3Instance = new web3(httpProvider);
@@ -14,6 +14,6 @@ chrome.runtime.onMessage.addListener(({ type }, _sender, sendResponse) => {
     helloWorldContract.methods.sayHey().call().then((response) => {
       sendResponse(response);
     });
-    return true; // We need to return true here to tell Chrome the response will be async.
+    return true;
   }
 });
