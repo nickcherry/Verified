@@ -12,29 +12,20 @@ yarn install
 ```
 
 
-## :art: Developing
+## :hammer: Developing
 
-To start the Ethereum development server (using [ganeche-cli](https://github.com/trufflesuite/ganache-cli) and have Webpack watch for changes associated with the Chrome extension, run the following:
 
-```shell
-yarn develop
-```
+### Starting the Ethereum Development Server
 
-To only start the Ethereum development server, run:
+To start the Ethereum development server (via [ganeche-cli](https://github.com/trufflesuite/ganache-cli), run the 
+following:
 
 ```shell
 yarn serve-ethereum
 ```
 
 
-To only start Webpack and watch for changes associated to the Chrome extension, run:
-
-```shell
-yarn webpack-chrome-extension-development
-```
-
-
-## :hammer: Compilng Contracts
+### Compiling Contracts
 
 To compile Solidity smart contracts in [`./contracts`](./contracts), run the following:
 
@@ -43,7 +34,7 @@ yarn compile
 ```
 
 
-## :rocket: Migrating Contracts
+### Migrating Contracts
 
 To migrate compiled contracts to the development server, run the following:
 
@@ -51,16 +42,19 @@ To migrate compiled contracts to the development server, run the following:
 yarn migrate
 ```
 
-To migrate compiled contracts to the live Etheruem network, run the following:
+
+### Starting Webpack
+
+To start Webpack and watch for changes associated with the Chrome extension, run the following:
 
 ```shell
-yarn migrate-production
+yarn webpack-chrome-extension-development
 ```
 
 
 ## :muscle: Testing Contracts
 
-First ensure that the Ethereum development network is running (either by `yarn develop` or `yarn serve-ethereum`) , then to start the test suite:
+First ensure that the Ethereum development network is running (`yarn serve-ethereum`), then to start the test suite:
 
 
 ```shell
