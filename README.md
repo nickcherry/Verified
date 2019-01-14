@@ -1,5 +1,7 @@
 # Verified
 
+A decentralized contract and accompanying Chrome extension for verifying the (psuedo-)identity of content creators.
+
 
 ## :package: Installing Dependencies
 
