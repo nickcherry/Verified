@@ -2,7 +2,7 @@ import web3 from 'web3';
 import {
   abi as helloWorldAbi,
   networks as helloWorldNetworks,
-} from '../builds/contracts/HelloWorld.json';
+} from '../../builds/contracts/HelloWorld.json';
 
 const httpProvider = new web3.providers.HttpProvider(process.env.NETWORK_URL);
 const web3Instance = new web3(httpProvider);
