@@ -1,3 +1,14 @@
+/**************************************************************************/
+/* Imports */
+/**************************************************************************/
+
+import md5 from 'crypto-js/md5';
+
+
+/**************************************************************************/
+/* Exports */
+/**************************************************************************/
+
 const addressRegexSubstr = '0x[a-fA-F0-9]{40}';
 const startTokenLength = 'verified-start:0x'.length + 40;
 
@@ -10,7 +21,7 @@ export const getClaims = (text) => {
     const endIndex = text.indexOf(`verified-end:${address}`, startIndex);
     if (endIndex !== -1) {
       const innerContent = text.substring(startIndex + startTokenLength, endIndex);
-      claims.push({ address, innerContent });
+      claims.push({ address, innerContent, innerContentHash: md5(innerContent).toString() });
     }
   }
   return claims;

@@ -22,6 +22,7 @@
     "webpack-chrome-extension-development": "node ./node_modules/webpack/bin/webpack --config ./webpack/chrome_extension.development.config.js --mode development --progress --hide-modules --watch"
   },
   "dependencies": {
+    "crypto-js": "^3.1.9-1",
     "ethers": "^4.0.20",
     "ganache-cli": "^6.2.5",
     "lodash": "^4.17.11",
