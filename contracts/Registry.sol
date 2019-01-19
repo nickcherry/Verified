@@ -16,8 +16,4 @@ contract Registry {
   function verify(address publisherAddress, string memory url) public view returns (bool) {
     return publications[publisherAddress][url];
   }
-
-  function hi() public pure returns (string memory) {
-    return 'Hi!';
-  }
 }
