@@ -8,15 +8,16 @@
   "scripts": {
     "clean": "rm -rf builds",
     "compile": "./node_modules/truffle/.bin/truffle compile --contracts_build_directory=builds/contracts",
+    "compile-and-migrate": "npm-run-all compile migrate",
     "develop": "npm-run-all --parallel compile serve-ethereum webpack-chrome-extension-development",
     "lint": "./node_modules/.bin/eslint --fix ./src ./test",
     "migrate": "./node_modules/truffle/.bin/truffle migrate --contracts_build_directory=builds/contracts --network development --reset --all",
     "migrate-production": "./node_modules/truffle/.bin/truffle migrate --contracts_build_directory=builds/contracts --network live",
     "postinstall": "cp ./githooks/pre-commit .git/hooks/pre-commit",
-    "serve-ethereum": "./node_modules/ganache-cli/cli.js",
-    "test": "npm-run-all --parallel test-contracts test-scripts",
+    "serve-ethereum": "./node_modules/ganache-cli/cli.js --debug",
+    "test": "npm-run-all --parallel test-contracts test-chrome-extension",
     "test-contracts": "./node_modules/truffle/.bin/truffle test --contracts_build_directory=builds/contracts",
-    "test-scripts": "./node_modules/mocha/bin/mocha --opts ./mocha.opts",
+    "test-chrome-extension": "./node_modules/mocha/bin/mocha --opts ./mocha.opts",
     "webpack-chrome-extension-development": "node ./node_modules/webpack/bin/webpack --config ./webpack/chrome_extension.development.config.js --mode development --progress --hide-modules --watch"
   },
   "dependencies": {

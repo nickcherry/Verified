@@ -1,4 +1,4 @@
-const CopyWebpackPlugin = require('copy-webpack-plugin')
+const copyWebpackPlugin = require('copy-webpack-plugin')
 
 module.exports = {
   entry: {
@@ -18,7 +18,7 @@ module.exports = {
     }],
   },
   plugins: [
-    new CopyWebpackPlugin([
+    new copyWebpackPlugin([
       { from: 'src/content/style.css', to: 'content/style.css' },
       { from: 'src/icons/icon128.png', to: 'icons/icon128.png' },
       { from: 'src/icons/icon16.png', to: 'icons/icon16.png' },

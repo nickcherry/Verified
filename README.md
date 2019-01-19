@@ -54,11 +54,24 @@ yarn webpack-chrome-extension-development
 
 ## :muscle: Testing Contracts
 
-First ensure that the Ethereum development network is running (`yarn serve-ethereum`), then to start the test suite:
+First ensure that the Ethereum development network is running (`yarn serve-ethereum`) and that contracts are compiled and migrated (`yarn compile-and-migrate`), then start the full test suite by running:
 
 
 ```shell
 yarn test
+```
+
+To test only the smart contracts, run:
+
+```shell
+yarn test-contracts
+```
+
+To test only the Chrome extension, run:
+
+```shell
+yarn test-chrome-extension
+
 ```
 
 

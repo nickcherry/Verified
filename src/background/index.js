@@ -24,7 +24,8 @@ const registryContract = new web3Instance.eth.Contract(registryAbi, registryAddr
 /**************************************************************************/
 
 const commit = ({ url }, _sender, sendResponse) => {
-  registryContract.methods.Register(url).call().then((response) => {
+  registryContract.methods.publish(url).call().then((response) => {
+    console.log(response);
     sendResponse(response);
   });
 };
