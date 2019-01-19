@@ -4,6 +4,8 @@
 
 import { normalizeUrl } from '../utils/urlUtils';
 
+import { PUBLISH } from '../constants/messageTypes';
+
 
 /**************************************************************************/
 /* Popup Behavior */
@@ -24,8 +26,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const url = normalizeUrl(urlInput.value);
     if (!url) return setErrorsText('Please enter a valid URL.');
 
-    chrome.runtime.sendMessage({ type: 'publish', url }, (response) => {
-      alert(response);
+    chrome.runtime.sendMessage({ type: PUBLISH, url }, () => {
+      alert('Published!');
     });
   });
 });

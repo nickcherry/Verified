@@ -6,6 +6,12 @@ import Web3 from 'web3';
 import { abi, networks } from '../../builds/contracts/Registry.json';
 import { last } from 'lodash';
 
+import publish from './publish';
+import unpublish from './unpublish';
+import verify from './verify';
+
+import { PUBLISH, UNPUBLISH, VERIFY } from '../constants/messageTypes';
+
 
 /**************************************************************************/
 /* Contract Setup */
@@ -20,22 +26,18 @@ if (typeof web3 !== 'undefined') {
   web3Instance = new Web3(httpProvider);
 }
 
-const registryAddress = last(Object.values(networks)).address;
-const registryContract = new web3Instance.eth.Contract(abi, registryAddress);
+const contractAddress = last(Object.values(networks)).address;
+const contract = new web3Instance.eth.Contract(abi, contractAddress);
 
  
 /**************************************************************************/
 /* Message Handlers */
 /**************************************************************************/
 
-const publish = ({ url }, _sender, sendResponse) => {
-  registryContract.methods.publish(url).call().then((response) => {
-    sendResponse(response);
-  });
-};
-
 const handlers = {
-  publish,
+  [PUBLISH]: publish(contract),
+  [UNPUBLISH]: unpublish(contract),
+  [VERIFY]: verify(contract),
 };
 
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {

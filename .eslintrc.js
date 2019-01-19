@@ -10,6 +10,7 @@ module.exports = {
     "chrome": true,
     "contract": true,
     "expect": true,
+    "sinon": true,
   },
   "extends": "eslint:recommended",
   "parserOptions": {
