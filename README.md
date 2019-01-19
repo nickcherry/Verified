@@ -52,6 +52,16 @@ yarn webpack-chrome-extension-development
 ```
 
 
+### Serving Mock Templates
+
+To serve the static templates defined in [`./mockServer/templates`](./mockServer/templates) for manually acceptance testing the smart contracts and Chrome extension locally, run:
+
+```shell
+yarn serve-templates
+```
+
+
+
 ## :muscle: Testing Contracts
 
 First ensure that the Ethereum development network is running (`yarn serve-ethereum`) and that contracts are compiled and migrated (`yarn compile-and-migrate`), then start the full test suite by running:
