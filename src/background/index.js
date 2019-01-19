@@ -28,25 +28,20 @@ const registryContract = new web3Instance.eth.Contract(abi, registryAddress);
 /* Message Handlers */
 /**************************************************************************/
 
-web3Instance.eth.getAccounts((err, accounts) => {
-  const [account] = accounts;
-  const callOpts = { from: account };
-
-  const publish = ({ url }, _sender, sendResponse) => {
-    registryContract.methods.publish(url).call(callOpts).then((response) => {
-      sendResponse(response);
-    });
-  };
-
-  const handlers = {
-    publish,
-  };
-
-  chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
-    const handler = handlers[request.type];
-    if (handler) {
-      handler(request, sender, sendResponse);
-      return true; // We need to return true here to tell Chrome the response will be async.
-    }
+const publish = ({ url }, _sender, sendResponse) => {
+  registryContract.methods.publish(url).call().then((response) => {
+    sendResponse(response);
   });
+};
+
+const handlers = {
+  publish,
+};
+
+chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+  const handler = handlers[request.type];
+  if (handler) {
+    handler(request, sender, sendResponse);
+    return true; // We need to return true here to tell Chrome the response will be async.
+  }
 });
