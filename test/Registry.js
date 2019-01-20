@@ -6,7 +6,7 @@ contract('Registry', (accounts) => {
 
   const ownAddress = accounts[0];
   const otherAddress = accounts[1];
-  const url = 'https://remix.ethereum.org/';
+  const url = 'http://example.com/';
 
   const verify = async (address, url, expectedResult) => {
     const result = await contractInstance.verify(address, url);
@@ -17,7 +17,7 @@ contract('Registry', (accounts) => {
     await verify(ownAddress, url, false);
     await contractInstance.publish(url);
     await verify(ownAddress, url, true);
-    await verify(ownAddress, 'http://google.com/', false);
+    await verify(ownAddress, 'http://example.com/', false);
     await verify(otherAddress, url, false);
     await contractInstance.unpublish(url);
     await verify(ownAddress, url, false);

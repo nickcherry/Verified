@@ -16,9 +16,13 @@ module.exports = {
   "parserOptions": {
     "ecmaVersion": 2017,
     "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true,
+    },
   },
   "plugins": [
     "mocha",
+    "react",
   ],
   "rules": {
     "indent": [
@@ -39,6 +43,7 @@ module.exports = {
     ],
     "no-console": "off",
     "mocha/no-exclusive-tests": "error",
-    "no-unused-vars": ["error", { "varsIgnorePattern": "should|expect" }],
+    "no-unused-vars": ["error", { "varsIgnorePattern": "should|expect|React" }],
+    "react/jsx-uses-vars": [2],
   }
 };

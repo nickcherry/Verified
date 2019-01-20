@@ -54,7 +54,7 @@ yarn webpack-chrome-extension-development
 
 ### Serving Mock Templates
 
-To serve the static templates defined in [`./mockServer/templates`](./mockServer/templates) for manually acceptance testing the smart contracts and Chrome extension locally, run:
+To serve the static templates defined in [`./mockServer/public`](./mockServer/public) for manually acceptance testing the smart contracts and Chrome extension locally, run:
 
 ```shell
 yarn serve-templates
